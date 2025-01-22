@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punjab's Medical Advancements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #6200ea;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .map {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .map img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem auto;
+            padding: 2rem 0;
+            width: 80%;
+            border-left: 2px solid #6200ea;
+        }
+
+        .timeline .event {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .timeline .event::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            background-color: #6200ea;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        .graph {
+            text-align: center;
+        }
+
+        .graph canvas {
+            margin: 1rem auto;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Punjab's Medical Advancements</h1>
+        <p>Discover the journey of Punjab's healthcare revolution.</p>
+    </header>
+
+    <div class="container">
+        <!-- Interactive Map Section -->
+        <section class="section">
+            <h2>Interactive Map</h2>
+            <p>Hover over the hotspots to learn about advancements in each area.</p>
+            <div class="map">
+                <img src="https://via.placeholder.com/800x400" alt="Map of Punjab">
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="section">
+            <h2>Timeline of Progress</h2>
+            <div class="timeline">
+                <div class="event">
+                    <h3>2019</h3>
+                    <p>AIIMS Bathinda established to provide specialized healthcare services.</p>
+                </div>
+                <div class="event">
+                    <h3>2020</h3>
+                    <p>Telemedicine services launched for rural areas.</p>
+                </div>
+                <div class="event">
+                    <h3>2022</h3>
+                    <p>Homi Bhabha Cancer Hospital opened in Sangrur.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Cards Section -->
+        <section class="section">
+            <h2>Key Focus Areas</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://via.placeholder.com/50" alt="Infrastructure">
+                    <h3>Infrastructure</h3>
+                    <p>Expanding medical colleges and super-specialty hospitals.</p>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/50" alt="Technology">
+                    <h3>Technology</h3>
+                    <p>AI-based diagnostics and telemedicine services.</p>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/50" alt="Public Health">
+                    <h3>Public Health</h3>
+                    <p>Vaccination drives and maternal health initiatives.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Graph Section -->
+        <section class="section graph">
+            <h2>Healthcare Stats</h2>
+            <p>Improvements in key health indicators over the years.</p>
+            <canvas id="statsGraph" width="600" height="400"></canvas>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Graph: Healthcare Stats
+        const ctx = document.getElementById('statsGraph').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2018', '2019', '2020', '2021', '2022'],
+                datasets: [
+                    {
+                        label: 'Infant Mortality Rate (per 1000)',
+                        data: [28, 25, 22, 19, 16],
+                        borderColor: '#6200ea',
+                        borderWidth: 2,
+                        fill: false,
+                    },
+                    {
+                        label: 'Hospital Beds per 1000',
+                        data: [1.2, 1.5, 1.7, 1.9, 2.2],
+                        borderColor: '#03dac6',
+                        borderWidth: 2,
+                        fill: false,
+                    },
+                ],
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                    },
+                },
+            },
+        });
+    </script>
+</body>
+</html>
